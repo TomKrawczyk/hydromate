@@ -32,7 +32,6 @@ export default function SettingsView({ profile, onSave }) {
     <div className="space-y-4 pt-2">
       <p className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-1">Ustawienia</p>
 
-      {/* Weight */}
       <div className="bg-white rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
@@ -59,7 +58,6 @@ export default function SettingsView({ profile, onSave }) {
         )}
       </div>
 
-      {/* Schedule */}
       <div className="bg-white rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center">
@@ -98,7 +96,6 @@ export default function SettingsView({ profile, onSave }) {
         </div>
       </div>
 
-      {/* Reminder interval */}
       <div className="bg-white rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center">

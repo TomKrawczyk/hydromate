@@ -29,7 +29,6 @@ export default function ReminderModal({ profile, todayTotal, onLog, onDismiss })
         className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
       />
 
-      {/* Pulsing animation top */}
       <motion.div
         className="absolute"
         style={{ top: "22%", left: "50%", transform: "translate(-50%,-50%)" }}
@@ -45,7 +44,7 @@ export default function ReminderModal({ profile, todayTotal, onLog, onDismiss })
           <motion.div
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 0.2 }}
-            className="w-18 h-18 rounded-full bg-blue-400/30 flex items-center justify-center w-[72px] h-[72px]"
+            className="w-[72px] h-[72px] rounded-full bg-blue-400/30 flex items-center justify-center"
           >
             <Droplets className="w-10 h-10 text-blue-500" />
           </motion.div>
@@ -67,7 +66,6 @@ export default function ReminderModal({ profile, todayTotal, onLog, onDismiss })
           </p>
         </div>
 
-        {/* Presets */}
         <div className="grid grid-cols-3 gap-3 mb-4">
           {PRESETS.map((ml) => (
             <button
@@ -87,7 +85,6 @@ export default function ReminderModal({ profile, todayTotal, onLog, onDismiss })
           ))}
         </div>
 
-        {/* Custom */}
         <div
           onClick={() => setUseCustom(true)}
           className={`flex items-center gap-3 rounded-2xl border-2 px-4 py-3 mb-5 cursor-text transition-all ${
