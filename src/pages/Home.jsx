@@ -114,7 +114,15 @@ export default function Home() {
         logs={logs}
         todayTotal={todayTotal}
         onLogWater={handleLogWater}
-        onEditProfile={() => setProfile({ ...profile, onboarding_completed: false })}
+        onEditProfile={async (data) => {
+          const dailyGoal = Math.round(data.weight_kg * 30);
+          await base44.entities.UserProfile.update(profile.id, {
+            ...data,
+            daily_goal_ml: dailyGoal,
+            onboarding_completed: true,
+          });
+          await loadData();
+        }}
         onRefresh={loadData}
       />
       {showReminder && (
