@@ -24,7 +24,9 @@ export default function Dashboard({ profile, logs, todayTotal, onLogWater, onEdi
       <div className="px-6 pt-14 pb-4 flex items-center justify-between">
         <div>
           <p className="text-slate-400 text-xs uppercase tracking-widest font-medium">Dzisiaj</p>
-          <h1 className="text-2xl font-bold text-slate-800">Nawodnienie</h1>
+          <h1 className="text-2xl font-bold text-slate-800">
+            {profile.name ? `Cześć, ${profile.name}!` : "Nawodnienie"}
+          </h1>
         </div>
         <div className="flex gap-2">
           <button
