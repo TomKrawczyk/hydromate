@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Droplets, Moon, Sun, Clock, ChevronRight } from "lucide-react";
+import { Droplets, Moon, Sun, Clock, ChevronRight, User } from "lucide-react";
 
 export default function Onboarding({ onSave, existingProfile }) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({
+    name: existingProfile?.name || "",
     weight_kg: existingProfile?.weight_kg || "",
     wake_time: existingProfile?.wake_time || "07:00",
     sleep_time: existingProfile?.sleep_time || "22:00",
@@ -15,6 +16,34 @@ export default function Onboarding({ onSave, existingProfile }) {
   const goal = form.weight_kg ? Math.round(parseFloat(form.weight_kg) * 30) : null;
 
   const steps = [
+    {
+      icon: <User className="w-10 h-10 text-violet-400" />,
+      title: "Cześć! Jak masz na imię?",
+      subtitle: "Podaj swoje imię, żebyśmy mogli Cię przywitać personalnie.",
+      content: (
+        <div>
+          <label className="text-sm font-medium text-slate-500 mb-2 block">Twoje imię</label>
+          <input
+            type="text"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            placeholder="np. Marek"
+            autoFocus
+            className="w-full text-3xl font-light text-center bg-white/70 border border-violet-100 rounded-2xl px-6 py-5 focus:outline-none focus:ring-2 focus:ring-violet-300 text-slate-700 placeholder-slate-300"
+          />
+          {form.name && (
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-slate-400 text-sm mt-3"
+            >
+              Miło Cię poznać, <span className="font-semibold text-violet-500">{form.name}</span>! 👋
+            </motion.p>
+          )}
+        </div>
+      ),
+      valid: !!form.name.trim(),
+    },
     {
       icon: <Droplets className="w-10 h-10 text-blue-400" />,
       title: "Twoje nawodnienie",
@@ -173,6 +202,15 @@ export default function Onboarding({ onSave, existingProfile }) {
             </>
           )}
         </button>
+
+        {step > 0 && (
+          <button
+            onClick={() => setStep(step - 1)}
+            className="w-full text-center text-slate-400 text-sm mt-4 py-2"
+          >
+            ← Wróć
+          </button>
+        )}
       </motion.div>
     </div>
   );
