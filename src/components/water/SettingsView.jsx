@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { base44 } from "@/api/base44Client";
-import { Sun, Moon, Clock, Scale, Save } from "lucide-react";
+import { Sun, Moon, Clock, Scale, Save, User } from "lucide-react";
 
 export default function SettingsView({ profile, onSave }) {
   const [form, setForm] = useState({
