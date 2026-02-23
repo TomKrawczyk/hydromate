@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import Dashboard from "../components/water/Dashboard";
 import Onboarding from "../components/water/Onboarding";
 import ReminderModal from "../components/water/ReminderModal";
+import { useNotifications } from "../components/water/useNotifications";
 
 export default function Home() {
   const [profile, setProfile] = useState(null);
