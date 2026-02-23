@@ -11,6 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showReminder, setShowReminder] = useState(false);
   const [todayTotal, setTodayTotal] = useState(0);
+  const { requestPermission, sendNotification } = useNotifications();
 
   const today = new Date().toISOString().split("T")[0];
 
