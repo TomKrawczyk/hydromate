@@ -30,6 +30,8 @@ export default function Home() {
 
   useEffect(() => {
     loadData();
+    // Request notification permission on app start
+    requestPermission();
   }, [loadData]);
 
   // Reminder scheduler
