@@ -50,6 +50,12 @@ export default function Home() {
       const intervalMs = (profile.reminder_interval_minutes || 60) * 60 * 1000;
       const lastTs = lastReminderRaw ? parseInt(lastReminderRaw) : 0;
       if (Date.now() - lastTs >= intervalMs) {
+        // Try native notification first (works in Android WebView / Capacitor)
+        sendNotification(
+          "HydroReminder 💧",
+          `Czas na wodę! Pamiętaj o nawodnieniu.`,
+          () => setShowReminder(true)
+        );
         setShowReminder(true);
       }
     };
