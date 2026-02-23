@@ -33,6 +33,25 @@ export default function SettingsView({ profile, onSave }) {
     <div className="space-y-4 pt-2">
       <p className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-1">Ustawienia</p>
 
+      {/* Name */}
+      <div className="bg-white rounded-2xl p-5 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-9 h-9 rounded-xl bg-violet-50 flex items-center justify-center">
+            <User className="w-4 h-4 text-violet-500" />
+          </div>
+          <div>
+            <p className="font-semibold text-slate-700 text-sm">Imię</p>
+          </div>
+        </div>
+        <input
+          type="text"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          placeholder="Twoje imię"
+          className="w-full text-lg font-medium text-center bg-slate-50 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-violet-200 text-slate-700 placeholder-slate-300"
+        />
+      </div>
+
       <div className="bg-white rounded-2xl p-5 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
