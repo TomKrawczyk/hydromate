@@ -4,6 +4,7 @@ import { Sun, Moon, Clock, Scale, Save, User } from "lucide-react";
 
 export default function SettingsView({ profile, onSave }) {
   const [form, setForm] = useState({
+    name: profile.name || "",
     weight_kg: profile.weight_kg || "",
     wake_time: profile.wake_time || "07:00",
     sleep_time: profile.sleep_time || "22:00",
